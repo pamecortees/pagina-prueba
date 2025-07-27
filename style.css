@@ -85,3 +85,22 @@ footer {
   }
 }
 
+/* Estilos para las tarjetas de productos */
+.card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilo para las imágenes de los productos */
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 2px solid #f3c6d3;
+}
