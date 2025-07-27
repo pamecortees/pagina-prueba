@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lunario</title>
 
-  <!-- Estilos propios -->
+  <!-- Tu hoja de estilos -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Estilos de animación AOS -->
+  <!-- Librería de animación AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
@@ -33,7 +33,7 @@
     <p>Lunario es una tienda bohemia de magia, belleza y misticismo.</p>
   </section>
 
-  <!-- NUEVA SECCIÓN: Botón con contador -->
+  <!-- Nueva sección: Botón con contador -->
   <section style="text-align: center; margin: 40px 0;" data-aos="flip-left">
     <h2 id="contador">0</h2>
     <button onclick="aumentarContador()">Haz clic aquí</button>
@@ -43,18 +43,17 @@
     <p>© 2025 Lunario</p>
   </footer>
 
-  <!-- Scripts de AOS -->
+  <!-- Scripts para AOS y funcionalidad -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
 
-  <!-- Script de saludo y contador -->
   <script>
     // Saludo en consola
     console.log("¡Hola, bienvenida a mi sitio web!");
 
-    // Función para aumentar el contador
+    // Función para el contador
     let contador = 0;
     function aumentarContador() {
       contador++;
@@ -63,3 +62,4 @@
   </script>
 </body>
 </html>
+
