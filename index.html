@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lunario</title>
 
-  <!-- Tu hoja de estilos -->
+  <!-- Hoja de estilos personalizada -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Librería de animación AOS -->
@@ -23,21 +23,22 @@
     </nav>
   </header>
 
-  <section class="hero" data-aos="fade-up">
-    <h2>Bienvenida a Lunario</h2>
-    <button>Compra ahora</button>
-  </section>
+  <main>
+    <section class="hero" data-aos="fade-up">
+      <h2>Bienvenida a Lunario</h2>
+      <button>Compra ahora</button>
+    </section>
 
-  <section class="nosotros" data-aos="zoom-in">
-    <h3>Sobre nosotres</h3>
-    <p>Lunario es una tienda bohemia de magia, belleza y misticismo.</p>
-  </section>
+    <section class="nosotros" data-aos="zoom-in">
+      <h3>Sobre nosotres</h3>
+      <p>Lunario es una tienda bohemia de magia, belleza y misticismo.</p>
+    </section>
 
-  <!-- Nueva sección: Botón con contador -->
-  <section style="text-align: center; margin: 40px 0;" data-aos="flip-left">
-    <h2 id="contador">0</h2>
-    <button onclick="aumentarContador()">Haz clic aquí</button>
-  </section>
+    <section class="contador" data-aos="flip-left">
+      <h2 id="contador">0</h2>
+      <button onclick="aumentarContador()">Haz clic aquí</button>
+    </section>
+  </main>
 
   <footer>
     <p>© 2025 Lunario</p>
@@ -62,4 +63,5 @@
   </script>
 </body>
 </html>
+
 
