@@ -6,172 +6,108 @@
   <title>Lunario</title>
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- AOS (animaciones) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Hoja de estilos propia -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS (Animaciones) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Estilo personalizado -->
-  <style>
-    body {
-      background-color: #ffeef6;
-      font-family: 'Georgia', serif;
-    }
-
-    h1, h2, h3 {
-      color: #856a5d;
-    }
-
-    .navbar {
-      border-bottom: 3px solid #f8c8dc;
-    }
-
-    .sidebar {
-      background-color: #fdf2f8;
-      height: 100vh;
-    }
-
-    .card {
-      border: none;
-    }
-
-    .card img {
-      object-fit: cover;
-      height: 200px;
-    }
-
-    button {
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #f7d1e0 !important;
-    }
-  </style>
 </head>
-
 <body>
-  <!-- Navbar superior -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">LUNARIO</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Tienda</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <header>
+    <h1 data-aos="fade-down">LUNARIO</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Tienda</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Layout con sidebar -->
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar izquierda -->
-      <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-        <div class="pt-3">
-          <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-          </ul>
-        </div>
-      </nav>
+  <main>
+    <section class="hero" data-aos="fade-up">
+      <h2>Bienvenida a Lunario</h2>
+      <button>Compra ahora</button>
+    </section>
 
-      <!-- Contenido principal -->
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <section class="nosotros" data-aos="zoom-in">
+      <h3>Sobre nosotres</h3>
+      <p>Lunario es una tienda bohemia de magia, belleza y misticismo.</p>
+    </section>
 
-        <!-- Sección hero -->
-        <section class="text-center my-5" data-aos="fade-up">
-          <h2>Bienvenida a Lunario</h2>
-          <button class="btn btn-primary mt-3">Compra ahora</button>
-        </section>
-
-        <!-- Sobre nosotres -->
-        <section class="text-center my-5" data-aos="zoom-in">
-          <h3>Sobre nosotres</h3>
-          <p>Lunario es una tienda bohemia de magia, belleza y misticismo.</p>
-        </section>
-
-        <!-- Contador interactivo -->
-        <section class="text-center my-5" data-aos="flip-left">
-          <h2 id="contador">0</h2>
-          <button class="btn btn-outline-dark" onclick="aumentarContador()">Haz clic aquí</button>
-        </section>
-
-        <!-- Álbum de productos -->
-        <section class="album py-5 bg-light" data-aos="fade-up">
-          <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-              <div class="col">
-                <div class="card shadow-sm">
-                  <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 1">
-                  <div class="card-body">
-                    <p class="card-text">Cristales energéticos</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <button class="btn btn-sm btn-outline-secondary">Ver</button>
-                      <small class="text-muted">$200 MXN</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 2">
-                  <div class="card-body">
-                    <p class="card-text">Velas aromáticas</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <button class="btn btn-sm btn-outline-secondary">Ver</button>
-                      <small class="text-muted">$150 MXN</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto 3">
-                  <div class="card-body">
-                    <p class="card-text">Lecturas de tarot</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <button class="btn btn-sm btn-outline-secondary">Ver</button>
-                      <small class="text-muted">$300 MXN</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- Productos -->
+    <section class="container my-5">
+      <h2 class="text-center mb-4" data-aos="fade-up">Nuestros Productos</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Producto 1 -->
+        <div class="col" data-aos="zoom-in">
+          <div class="card h-100">
+            <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
+            <div class="card-body">
+              <h5 class="card-title">Veladora Mística</h5>
+              <p class="card-text">Una veladora artesanal con aroma a lavanda y cuarzo rosa para atraer armonía.</p>
             </div>
           </div>
-        </section>
+        </div>
 
-        <!-- Footer -->
-        <footer class="text-center py-4">
-          <p>© 2025 Lunario</p>
-        </footer>
+        <!-- Producto 2 -->
+        <div class="col" data-aos="zoom-in">
+          <div class="card h-100">
+            <img src="producto2.jpg" class="card-img-top" alt="Producto 2">
+            <div class="card-body">
+              <h5 class="card-title">Kit de Rituales</h5>
+              <p class="card-text">Incluye hierbas, piedras y un mini manual para conectar con tu energía interior.</p>
+            </div>
+          </div>
+        </div>
 
-      </main>
-    </div>
-  </div>
+        <!-- Producto 3 -->
+        <div class="col" data-aos="zoom-in">
+          <div class="card h-100">
+            <img src="producto3.jpg" class="card-img-top" alt="Producto 3">
+            <div class="card-body">
+              <h5 class="card-title">Pulsera de Protección</h5>
+              <p class="card-text">Hecha con obsidiana negra y detalles dorados, ideal para protegerte de malas vibras.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Bootstrap JS + AOS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Contador -->
+    <section style="text-align: center; margin: 40px 0;" data-aos="flip-left" class="contador">
+      <h2 id="contador">0</h2>
+      <button onclick="aumentarContador()">Haz clic aquí</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Lunario</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS Animaciones -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-    console.log("¡Hola, bienvenida a mi sitio web!");
+  </script>
 
+  <!-- Script del contador -->
+  <script>
     let contador = 0;
     function aumentarContador() {
       contador++;
       document.getElementById("contador").innerText = contador;
     }
+    console.log("¡Hola, bienvenida a mi sitio web!");
   </script>
 </body>
 </html>
+
 
 
 
