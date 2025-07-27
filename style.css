@@ -1,13 +1,11 @@
-/* Fondo rosita bebé */
+/* Fondo rosita bebé y tipografía */
 body {
   background: #ffeef4;
   font-family: 'Georgia', serif;
-  margin: 0;
-  padding: 0;
   color: #333;
 }
 
-/* Header con barra separadora */
+/* Header */
 header {
   background-color: #fff;
   border-bottom: 3px solid #f3c6d3;
@@ -43,13 +41,13 @@ nav a:hover {
 }
 
 /* Secciones */
-main section {
+main section, section {
   text-align: center;
   padding: 50px 20px;
 }
 
-/* Botones */
-button {
+/* Botones personalizados */
+button, .btn-custom {
   background-color: #c96a84;
   color: white;
   border: none;
@@ -61,12 +59,12 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+button:hover, .btn-custom:hover {
   background-color: #e697b2;
 }
 
 /* Contador */
-.contador h2 {
+#contador {
   font-size: 2rem;
   color: #a05070;
 }
@@ -79,7 +77,7 @@ footer {
   border-top: 2px solid #f3c6d3;
 }
 
-/* Responsive para celular */
+/* Responsive */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
