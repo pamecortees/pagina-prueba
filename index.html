@@ -4,11 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lunario</title>
+
+  <!-- Estilos propios -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Estilos de animación AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>LUNARIO</h1>
+    <h1 data-aos="fade-down">LUNARIO</h1>
     <nav>
       <ul>
         <li><a href="#">Inicio</a></li>
@@ -18,60 +23,43 @@
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero" data-aos="fade-up">
     <h2>Bienvenida a Lunario</h2>
     <button>Compra ahora</button>
   </section>
 
-  <section class="nosotros">
+  <section class="nosotros" data-aos="zoom-in">
     <h3>Sobre nosotres</h3>
     <p>Lunario es una tienda bohemia de magia, belleza y misticismo.</p>
+  </section>
+
+  <!-- NUEVA SECCIÓN: Botón con contador -->
+  <section style="text-align: center; margin: 40px 0;" data-aos="flip-left">
+    <h2 id="contador">0</h2>
+    <button onclick="aumentarContador()">Haz clic aquí</button>
   </section>
 
   <footer>
     <p>© 2025 Lunario</p>
   </footer>
+
+  <!-- Scripts de AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- Script de saludo y contador -->
+  <script>
+    // Saludo en consola
+    console.log("¡Hola, bienvenida a mi sitio web!");
+
+    // Función para aumentar el contador
+    let contador = 0;
+    function aumentarContador() {
+      contador++;
+      document.getElementById("contador").innerText = contador;
+    }
+  </script>
 </body>
 </html>
-/* 1. Flexbox */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-}
-
-/* 2. Media Queries (diseño responsivo) */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-/* 3. Gradientes */
-body {
-  background: linear-gradient(to bottom, #fdf6ec, #f4e3d7);
-  font-family: 'Georgia', serif;
-  margin: 0;
-}
-
-/* 4. Transiciones */
-button {
-  background-color: #856a5d;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #a1846c;
-}
-
-/* 5. Sombra (Box-shadow) */
-.hero {
-  padding: 50px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-}
