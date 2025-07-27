@@ -104,3 +104,18 @@ footer {
   object-fit: cover;
   border-bottom: 2px solid #f3c6d3;
 }
+
+/* Alerta personalizada */
+#alerta {
+  font-weight: bold;
+  border: 2px solid #c96a84;
+  background-color: #fff0f5;
+  color: #a05070;
+  border-radius: 10px;
+}
+
+/* Centrar botones dentro de las tarjetas */
+.card-body button {
+  margin-top: 15px;
+}
+
