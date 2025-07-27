@@ -3,16 +3,16 @@ body {
   background: #ffeef4;
   font-family: 'Georgia', serif;
   margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-/* Título y barra divisora */
+/* Header con barra separadora */
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  border-bottom: 3px solid #f3c6d3; /* barra rosita */
   background-color: #fff;
+  border-bottom: 3px solid #f3c6d3;
+  padding: 30px 20px;
+  text-align: center;
 }
 
 header h1 {
@@ -21,35 +21,69 @@ header h1 {
   margin: 0;
 }
 
-/* Menú de navegación */
+/* Navegación */
 nav ul {
   list-style: none;
-  display: flex;
-  gap: 20px;
   padding: 0;
   margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 nav a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  transition: color 0.3s;
 }
 
 nav a:hover {
   color: #c96a84;
 }
 
+/* Secciones */
+main section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
 /* Botones */
 button {
   background-color: #c96a84;
   color: white;
-  padding: 10px 20px;
   border: none;
-  margin-top: 15px;
-  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 1rem;
   cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  backgroun
+  background-color: #e697b2;
+}
+
+/* Contador */
+.contador h2 {
+  font-size: 2rem;
+  color: #a05070;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-top: 2px solid #f3c6d3;
+}
+
+/* Responsive para celular */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
