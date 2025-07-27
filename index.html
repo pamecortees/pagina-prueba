@@ -7,12 +7,10 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Hoja de estilos propia -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- AOS (Animaciones) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- AOS Animaciones -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -27,23 +25,12 @@
   </header>
 
   <main>
-    <!-- Contador general -->
-    <section style="text-align: center; margin: 40px 0;" data-aos="fade-up" class="contador">
-      <h2>Productos en el carrito: <span id="contador">0</span></h2>
-    </section>
-
-    <!-- Alerta -->
-    <div id="alerta" class="alert alert-success text-center w-75 mx-auto d-none" role="alert">
-      Producto agregado al carrito ✅
-    </div>
-
-    <!-- Sección de bienvenida -->
     <section class="hero" data-aos="fade-up">
       <h2>Bienvenida a Lunario</h2>
-      <button>Compra ahora</button>
+      <!-- Botón para abrir el carrito -->
+      <button class="btn-custom" onclick="mostrarCarrito()">Ver carrito 🛒 (<span id="contador-carrito">0</span>)</button>
     </section>
 
-    <!-- Sobre nosotros -->
     <section class="nosotros" data-aos="zoom-in">
       <h3>Sobre nosotres</h3>
       <p>Lunario es una tienda bohemia de magia, belleza y misticismo.</p>
@@ -53,14 +40,16 @@
     <section class="container my-5">
       <h2 class="text-center mb-4" data-aos="fade-up">Nuestros Productos</h2>
       <div class="row row-cols-1 row-cols-md-3 g-4">
+
         <!-- Producto 1 -->
         <div class="col" data-aos="zoom-in">
           <div class="card h-100">
             <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
-            <div class="card-body text-center">
+            <div class="card-body">
               <h5 class="card-title">Veladora Mística</h5>
-              <p class="card-text">Una veladora artesanal con aroma a lavanda y cuarzo rosa para atraer armonía.</p>
-              <button onclick="agregarAlCarrito()" class="btn btn-primary">Agregar al carrito</button>
+              <p class="card-text">Una veladora artesanal con aroma a lavanda y cuarzo rosa.</p>
+              <p><strong>$120</strong></p>
+              <button class="btn-custom" onclick="agregarAlCarrito('Veladora Mística', 120)">Agregar al carrito</button>
             </div>
           </div>
         </div>
@@ -69,10 +58,11 @@
         <div class="col" data-aos="zoom-in">
           <div class="card h-100">
             <img src="producto2.jpg" class="card-img-top" alt="Producto 2">
-            <div class="card-body text-center">
+            <div class="card-body">
               <h5 class="card-title">Kit de Rituales</h5>
-              <p class="card-text">Incluye hierbas, piedras y un mini manual para conectar con tu energía interior.</p>
-              <button onclick="agregarAlCarrito()" class="btn btn-primary">Agregar al carrito</button>
+              <p class="card-text">Incluye hierbas, piedras y un mini manual espiritual.</p>
+              <p><strong>$200</strong></p>
+              <button class="btn-custom" onclick="agregarAlCarrito('Kit de Rituales', 200)">Agregar al carrito</button>
             </div>
           </div>
         </div>
@@ -81,50 +71,95 @@
         <div class="col" data-aos="zoom-in">
           <div class="card h-100">
             <img src="producto3.jpg" class="card-img-top" alt="Producto 3">
-            <div class="card-body text-center">
+            <div class="card-body">
               <h5 class="card-title">Pulsera de Protección</h5>
-              <p class="card-text">Hecha con obsidiana negra y detalles dorados, ideal para protegerte de malas vibras.</p>
-              <button onclick="agregarAlCarrito()" class="btn btn-primary">Agregar al carrito</button>
+              <p class="card-text">Hecha con obsidiana negra, ideal para protegerte.</p>
+              <p><strong>$150</strong></p>
+              <button class="btn-custom" onclick="agregarAlCarrito('Pulsera de Protección', 150)">Agregar al carrito</button>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   </main>
+
+  <!-- Modal del Carrito -->
+  <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tu Carrito de Compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="lista-carrito" class="list-group mb-3"></ul>
+          <h5>Total: $<span id="total-carrito">0</span></h5>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
+          <button class="btn btn-danger" onclick="vaciarCarrito()">Vaciar carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <p>© 2025 Lunario</p>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- AOS Animaciones -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <!-- Script -->
   <script>
     AOS.init();
 
-    let contador = 0;
+    let carrito = [];
 
-    function agregarAlCarrito() {
-      contador++;
-      document.getElementById("contador").innerText = contador;
-
-      const alerta = document.getElementById("alerta");
-      alerta.classList.remove("d-none");
-
-      setTimeout(() => {
-        alerta.classList.add("d-none");
-      }, 2000);
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
     }
 
-    console.log("¡Hola, bienvenida a mi sitio web!");
+    function actualizarCarrito() {
+      const lista = document.getElementById("lista-carrito");
+      const total = document.getElementById("total-carrito");
+      const contador = document.getElementById("contador-carrito");
+      lista.innerHTML = "";
+
+      let totalPrecio = 0;
+      carrito.forEach((producto, index) => {
+        totalPrecio += producto.precio;
+        const item = document.createElement("li");
+        item.className = "list-group-item d-flex justify-content-between align-items-center";
+        item.innerHTML = `
+          ${producto.nombre} - $${producto.precio}
+          <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto(${index})">Eliminar</button>
+        `;
+        lista.appendChild(item);
+      });
+
+      total.textContent = totalPrecio;
+      contador.textContent = carrito.length;
+    }
+
+    function eliminarProducto(index) {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    }
+
+    function vaciarCarrito() {
+      carrito = [];
+      actualizarCarrito();
+    }
+
+    function mostrarCarrito() {
+      const modal = new bootstrap.Modal(document.getElementById("carritoModal"));
+      modal.show();
+    }
   </script>
 </body>
 </html>
-
 
 
 
