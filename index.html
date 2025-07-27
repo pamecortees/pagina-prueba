@@ -27,11 +27,23 @@
   </header>
 
   <main>
+    <!-- Contador general -->
+    <section style="text-align: center; margin: 40px 0;" data-aos="fade-up" class="contador">
+      <h2>Productos en el carrito: <span id="contador">0</span></h2>
+    </section>
+
+    <!-- Alerta -->
+    <div id="alerta" class="alert alert-success text-center w-75 mx-auto d-none" role="alert">
+      Producto agregado al carrito ✅
+    </div>
+
+    <!-- Sección de bienvenida -->
     <section class="hero" data-aos="fade-up">
       <h2>Bienvenida a Lunario</h2>
       <button>Compra ahora</button>
     </section>
 
+    <!-- Sobre nosotros -->
     <section class="nosotros" data-aos="zoom-in">
       <h3>Sobre nosotres</h3>
       <p>Lunario es una tienda bohemia de magia, belleza y misticismo.</p>
@@ -45,9 +57,10 @@
         <div class="col" data-aos="zoom-in">
           <div class="card h-100">
             <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
-            <div class="card-body">
+            <div class="card-body text-center">
               <h5 class="card-title">Veladora Mística</h5>
               <p class="card-text">Una veladora artesanal con aroma a lavanda y cuarzo rosa para atraer armonía.</p>
+              <button onclick="agregarAlCarrito()" class="btn btn-primary">Agregar al carrito</button>
             </div>
           </div>
         </div>
@@ -56,9 +69,10 @@
         <div class="col" data-aos="zoom-in">
           <div class="card h-100">
             <img src="producto2.jpg" class="card-img-top" alt="Producto 2">
-            <div class="card-body">
+            <div class="card-body text-center">
               <h5 class="card-title">Kit de Rituales</h5>
               <p class="card-text">Incluye hierbas, piedras y un mini manual para conectar con tu energía interior.</p>
+              <button onclick="agregarAlCarrito()" class="btn btn-primary">Agregar al carrito</button>
             </div>
           </div>
         </div>
@@ -67,19 +81,14 @@
         <div class="col" data-aos="zoom-in">
           <div class="card h-100">
             <img src="producto3.jpg" class="card-img-top" alt="Producto 3">
-            <div class="card-body">
+            <div class="card-body text-center">
               <h5 class="card-title">Pulsera de Protección</h5>
               <p class="card-text">Hecha con obsidiana negra y detalles dorados, ideal para protegerte de malas vibras.</p>
+              <button onclick="agregarAlCarrito()" class="btn btn-primary">Agregar al carrito</button>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Contador -->
-    <section style="text-align: center; margin: 40px 0;" data-aos="flip-left" class="contador">
-      <h2 id="contador">0</h2>
-      <button onclick="aumentarContador()">Haz clic aquí</button>
     </section>
   </main>
 
@@ -92,17 +101,25 @@
 
   <!-- AOS Animaciones -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Script -->
   <script>
     AOS.init();
-  </script>
 
-  <!-- Script del contador -->
-  <script>
     let contador = 0;
-    function aumentarContador() {
+
+    function agregarAlCarrito() {
       contador++;
       document.getElementById("contador").innerText = contador;
+
+      const alerta = document.getElementById("alerta");
+      alerta.classList.remove("d-none");
+
+      setTimeout(() => {
+        alerta.classList.add("d-none");
+      }, 2000);
     }
+
     console.log("¡Hola, bienvenida a mi sitio web!");
   </script>
 </body>
